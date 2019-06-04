@@ -12,6 +12,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
@@ -21,9 +22,10 @@ public class App {
 	}
 }
 
-@RestController
-class HelloworldController {
-	private static final Logger logger = LoggerFactory.getLogger(HelloworldController.class);
+@RestController()
+@RequestMapping("/genesio/v1")
+class EchoController {
+	private static final Logger logger = LoggerFactory.getLogger(EchoController.class);
 
 	@Value("${version:1.0}")
 	public String version;

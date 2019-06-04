@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: genesio
+  labels:
+    app: genesion
+    service: genesio
+spec:
+  ports:
+  - port: 8080
+    name: http
+  selector:
+    app: genesio
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: genesio-v1
+  labels:
+    app: genesio
+    version: v1
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: genesio
+        version: v1
+    spec:
+      containers:
+      - name: genesio
+        image: fsanti68/java-istio-microservice-istio:1.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
