@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: genesio
-        image: fsanti68/java-istio-microservice-istio:1.0
+        image: fsanti68/java-istio-microservice-istio:1.1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
