@@ -33,3 +33,25 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: genesio-v2
+  labels:
+    app: genesio
+    version: v2
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: genesio
+        version: v2
+    spec:
+      containers:
+      - name: genesio
+        image: fsanti68/java-istio-microservice-istio:2.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080

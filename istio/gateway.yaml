@@ -12,3 +12,22 @@ spec:
       protocol: HTTP
     hosts:
     - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: genesio
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - genesio-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /genesio
+    route:
+    - destination:
+        host: genesio
+        port:
+          number: 8080

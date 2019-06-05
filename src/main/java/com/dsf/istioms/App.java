@@ -23,7 +23,7 @@ public class App {
 }
 
 @RestController()
-@RequestMapping("/genesio/v1")
+@RequestMapping("/genesio/v2")
 class EchoController {
 	private static final Logger logger = LoggerFactory.getLogger(EchoController.class);
 

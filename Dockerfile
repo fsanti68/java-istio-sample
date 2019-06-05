@@ -1,6 +1,6 @@
 FROM openjdk:8u131-jre-alpine
 
 COPY target/lib/* /app/lib/
-COPY target/java-istio-microservice-0.0.1-SNAPSHOT.jar /app/app.jar
+COPY target/java-istio-microservice-2.0.0-SNAPSHOT.jar /app/app.jar
 
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]

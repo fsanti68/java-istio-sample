@@ -8,24 +8,17 @@ spec:
   gateways:
     - genesio-gateway
   http:
+  - match:
+    - headers:
+        version:
+          exact: v2
+    route:
+    - destination:
+        host: genesio
+        subset: v2
   - route:
     - destination:
         host: genesio
         subset: v1
         port:
           number: 8080
----
-apiVersion: networking.istio.io/v1alpha3
-kind: DestinationRule
-metadata:
-  name: genesio
-spec:
-  host: genesio
-  trafficPolicy:
-    tls:
-      mode: ISTIO_MUTUAL
-  subsets:
-  - name: v1
-    labels:
-      app: genesio
-      version: v1
